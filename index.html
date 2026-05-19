@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <title>INVITACION CUMPLEAÑOS BASTIAN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitación al cumpleaños de Bastian">
+    <meta name="keywords" content="invitación, cumpleaños, Bastian, fiesta, celebración">
+    <meta name="author" content="INVITACION CUMPLEAÑOS BASTIAN">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="./img/bastian.jpeg">
+</head>
+
+<body>
+
+
+    <!-- PANTALLA DE BIENVENIDA -->
+    <div id="welcomescreen" class="screen" role="dialog" aria-labelledby="welcomeTitle">
+        <p class="letra">Bienvenidos a la invitación de</p>
+        <h2 id="welcomeTitle">Bastian</h2>
+        <hr class="separador-horizontal" />
+        <button id="enterbtn" aria-controls="mainContent">INGRESAR</button>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="mainContent" class="screen hidden" role="main" aria-hidden="true">
+
+        <!-- Texto del anuncio en el área blanca, debajo de las flores -->
+        <section class="seccion-anuncio" aria-labelledby="anuncioTitle">
+            <div class="texto-anuncio">
+                <h2 id="anuncioTitle">Acompáñame a celebrar mi cumpleaños</h2>
+                <!-- Cambia el número aquí a 8 o 9 según necesites -->
+                <h1 id="age">8</h1>
+                <h2>Años</h2>
+            </div>
+        </section>
+
+        <p class="fecha">23 · Mayo · 2026</p>
+
+        <!-- Control de música -->
+        <button class="music-control" id="musicBtn" aria-pressed="false" title="Reproducir/pausar música">
+            <i class="fas fa-volume-up" aria-hidden="true"></i>
+            <span class="sr-only">Control de música</span>
+        </button>
+        <div class="music-progress" aria-hidden="true">
+            <div class="music-progress-bar" id="musicProgressBar"></div>
+        </div>
+
+        <!-- Foto principal (usa CSS para tamaño responsable) -->
+        <img src="./img/bastian.jpeg" alt="Foto de Bastian sonriendo" class="foto-bastian">
+
+        <!-- Sección: Mensaje -->
+        <section class="seccion-texto">
+            <p class="versiculo">Quiero compartir este momento especial junto al cariño de mis amigos y mi familia. Será
+                una tarde llena de risas, juegos y sorpresas — ¡me encantaría que vengas!</p>
+        </section>
+
+        <!-- Sección: Recepción -->
+        <section class="seccion-recepcion">
+            <img src="./img/recepcion.png" alt="Ícono de lugar de encuentro" class="recepcion-img">
+            <h2>Lugar de encuentro</h2>
+            <p><strong>Hora:</strong> 6:30 p.m.</p>
+            <p><strong>Lugar:</strong> Lima</p>
+            <a href="https://maps.app.goo.gl/MZrkJtgyD3oVNcb16" target="_blank" rel="noopener" class="btn-maps"
+                aria-label="Ver ubicación en Google Maps">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                Ver en Google Maps
+            </a>
+        </section>
+
+        <!-- Segunda foto -->
+        <img src="./img/bastian.jpeg" alt="Otra foto de Bastian" class="foto-pareja">
+
+        <!-- Sección: Confirmar asistencia -->
+        <section class="seccion-asistencia" aria-labelledby="confirmTitle">
+            <img src="./img/mayo 23.webp" alt="Icono calendario" class="calendario">
+            <h2 id="confirmTitle">Confirmar asistencia</h2>
+            <p>Tu presencia es muy importante para nosotros. Por favor confirma tu asistencia por WhatsApp:</p>
+            <a class="btn-asistencia"
+                href="https://wa.me/936113520?text=Hola%20%2C%20confirmo%20mi%20asistencia%20al%20cumplea%C3%B1os%20de%20Bastian."
+                target="_blank" rel="noopener" aria-label="Confirmar asistencia por WhatsApp">
+                💬 Confirmar por WhatsApp
+            </a>
+        </section>
+
+        <!-- Sección: Cierre -->
+        <section class="seccion-comentario">
+            <img src="img/icono.png" alt="Iniciales" class="iniciales">
+            <p>Acompáñame a celebrar mi cumpleaños de una manera increíble. ¡TE ESPERAMOS!</p>
+        </section>
+
+    </main>
+
+    <!-- Audio de fondo -->
+    <audio id="bgMusic" loop>
+        <source src="./music/El Rey León - Hakuna Matata (Latino) (Letra).mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

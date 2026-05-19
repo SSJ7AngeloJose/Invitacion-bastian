@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde-claro: #7a8a5a;
+    --verde-hover: #0e42a4;
+    --fondo-boton: rgba(109, 189, 122, 0.815);
+    --color-acento: #acc716;
+}
+
+body {
+    background-color: rgb(185, 185, 185);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    background-image: url("img/juego del calamar.jpeg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 30% auto;
+    background-attachment: fixed;
+}
+
+/* ================================
+   PANTALLA (bienvenida y principal)
+================================ */
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================================
+   TIPOGRAFÍA
+================================ */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 2px;
+    color: var(--color-acento);
+    font-size: 6rem;
+    margin: 10px 0;
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    color: rgb(167, 117, 42);
+    font-size: 40px;
+    margin: 11px 0;
+}
+
+p {
+    font-size: 20px;
+    max-width: 90%;
+    margin: 10px auto;
+}
+
+.letra {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(254, 255, 255);
+}
+
+.versiculo {
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.fecha {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* ================================
+   IMÁGENES GENERALES
+================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.foto-pareja {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.foto-bastian {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ================================
+   SEPARADOR
+================================ */
+.separador-horizontal {
+    width: 240px;
+    height: 2px;
+    border: none;
+    background-color: #959090;
+}
+
+/* ================================
+   BOTÓN DE INGRESO
+================================ */
+#enterbtn {
+    padding: 14px 30px;
+    font-size: 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    background: var(--verde-claro);
+    color: white;
+    border: none;
+    margin-top: 20px;
+    transition: background 0.6s ease;
+}
+
+#enterbtn:hover {
+    background: var(--verde-hover);
+}
+
+/* ================================
+   TARJETA PRINCIPAL
+================================ */
+#mainContent {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    #mainContent {
+        border-radius: 15px;
+        margin: 20px;
+        min-height: auto;
+    }
+}
+
+/* ================================
+   CONTROL DE MÚSICA
+================================ */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    background: #666765;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 100;
+    border: none;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    background: #7a8a5a;
+}
+
+.music-progress {
+    width: 160px;
+    height: 6px;
+    background: rgba(52, 136, 37, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.music-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #8ea40e;
+    border-radius: 10px;
+    transition: width 0.2s linear;
+}
+
+/* ================================
+   SECCIONES DE CONTENIDO
+================================ */
+.seccion-texto,
+.seccion-recepcion,
+.seccion-asistencia,
+.seccion-comentario {
+    padding: 40px 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* ================================
+   SECCIÓN ANUNCIO (banner)
+================================ */
+.seccion-anuncio {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.texto-anuncio {
+    width: 100%;
+    text-align: center;
+}
+
+.texto-anuncio h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #e8d5a3;
+    font-size: 2rem;
+    margin: 6px 0;
+    line-height: 1.2;
+}
+
+.texto-anuncio h1 {
+    font-family: 'Great Vibes', cursive;
+    color: #f5c842;
+    font-size: 6rem;
+    margin: 8px 0;
+    line-height: 1;
+}
+
+.texto-anuncio h2:last-child {
+    color: #e8d5a3;
+    font-size: 2.5rem;
+}
+
+.texto-anuncio .fecha {
+    color: #e8d5a3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-top: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media (max-width: 600px) {
+    .seccion-anuncio {
+        padding: 40px 16px;
+    }
+
+    .texto-anuncio h2 {
+        font-size: 1.5rem;
+    }
+
+    .texto-anuncio h1 {
+        font-size: 4rem;
+    }
+
+    .texto-anuncio .fecha {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ================================
+   ÍCONOS DE SECCIÓN
+================================ */
+.calendario {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    margin: 20px auto 10px;
+}
+
+.recepcion-img {
+    width: 180px;
+    height: auto;
+    display: block;
+    margin: 20px auto 10px;
+}
+
+/* ================================
+   BOTÓN GOOGLE MAPS
+================================ */
+.btn-maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background-color: var(--fondo-boton);
+    color: #000000;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-maps:hover {
+    background-color: #000000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(95, 104, 47, 0.3);
+}
+
+.btn-maps i {
+    font-size: 1.2rem;
+}
+
+/* ================================
+   BOTÓN ASISTENCIA
+================================ */
+.btn-asistencia {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background-color: var(--fondo-boton);
+    color: #000000;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-asistencia:hover {
+    background-color: #000000;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ================================
+   SECCIÓN CIERRE
+================================ */
+.iniciales {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(95, 104, 47, 0.3);
+}
