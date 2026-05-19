@@ -21,16 +21,39 @@ body {
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    background-image: url("img/juego del calamar.jpeg");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 30% auto;
-    background-attachment: fixed;
 }
 
 /* ================================
    PANTALLA (bienvenida y principal)
 ================================ */
+
+#welcomescreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    
+    /* Movemos la imagen del juego del calamar aquí */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/juego del calamar.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Cambiado a cover para que cubra bien toda la pantalla de inicio */
+}
+
+@media (min-width: 768px) {
+    #welcomescreen {
+        background-size: contain; /* Mantiene la proporción en pantallas grandes si la imagen es vertical */
+        background-color: #000; /* Fondo negro para los lados si se usa contain */
+    }
+}
+
+
 .screen {
     display: flex;
     flex-direction: column;
