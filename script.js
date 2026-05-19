@@ -6,24 +6,45 @@ const bgMusic = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 const progressBar = document.getElementById('musicProgressBar');
 
-let isMusicPlaying = false;
+let isMusicPlaying = false; // Asumimos que la música se reproduce al cargar, pero el navegador puede bloquearlo
+
+// --- FUNCIÓN PARA REPRODUCIR EN LA PANTALLA DE BIENVENIDA ---
+function iniciarMusica() {
+    if (!isMusicPlaying) {
+        bgMusic.play()
+            .then(() => {
+                isMusicPlaying = true;
+                // Sincroniza el ícono del botón de música por si acaso
+                musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                musicBtn.classList.remove('muted');
+            })
+            .catch(error => {
+                // El navegador bloqueó el autoplay, se queda esperando el clic silenciosamente
+                console.log('Esperando interacción para reproducir audio...');
+            });
+    }
+}
+
+// 1. Intentar reproducir de inmediato al cargar la página
+iniciarMusica();
+
+// 2. TRUCO CLAVE: Si tocan cualquier parte de la pantalla de bienvenida, la música arranca
+welcomeScreen.addEventListener('click', iniciarMusica);
+
 
 // Evento click en botón "Ingresar"
-enterBtn.addEventListener('click', () => {
+enterBtn.addEventListener('click', (e) => {
+    // Evita que el clic se duplique al welcomeScreen
+    e.stopPropagation(); 
+
     // Ocultar pantalla de bienvenida
     welcomeScreen.classList.add('hidden');
 
     // Mostrar contenido principal
     mainContent.classList.remove('hidden');
 
-    // Reproducir música automáticamente
-    bgMusic.play()
-        .then(() => {
-            isMusicPlaying = true;
-        })
-        .catch(error => {
-            console.log('Error al reproducir música:', error);
-        });
+    // Asegura que la música siga sonando al cambiar de pantalla
+    iniciarMusica();
 });
 
 // Control de música (play/pause)
@@ -47,53 +68,3 @@ bgMusic.addEventListener('timeupdate', () => {
         progressBar.style.width = progress + '%';
     }
 });
-
-/* para hacer click cuando yo quiero 
-document.querySelector('.music-progress').addEventListener('click', (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const width = rect.width;
-    const newTime = (clickX / width) * bgMusic.duration;
-    bgMusic.currentTime = newTime;
-});*/ 
-
-
-
-
-// Evento click en botón "Enviar"
-
-function abrirModal() {
-    document.getElementById("modalMensaje").style.display = "block";
-}
-
-function cerrarModal() {
-    document.getElementById("modalMensaje").style.display = "none";
-}
-
-
-(function () {
-    emailjs.init("oqCFv4X5HVnzENL2U");
-})();
-
-function enviarMensaje() {
-    const nombre = document.getElementById("nombre").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
-
-    if (!nombre || !mensaje) {
-        alert("Por favor completa los campos obligatorios");
-        return;
-    }
-
-    emailjs.send("service_nw4nkkg", "template_cfwvslt", {
-        nombre: nombre,
-        mensaje: mensaje
-    }).then(() => {
-        alert("💌 Tu mensaje fue enviado con éxito");
-        document.getElementById("nombre").value = "";
-        document.getElementById("mensaje").value = "";
-        cerrarModal();
-    }).catch((error) => {
-        console.error(error);
-        alert("❌ Error al enviar el mensaje");
-    });
-}
