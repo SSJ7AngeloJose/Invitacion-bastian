@@ -78,8 +78,10 @@ h1 {
 h2 {
     font-family: 'Great Vibes', cursive;
     color: rgb(167, 117, 42);
-    font-size: 40px;
+    font-size: 20px;
     margin: 11px 0;
+    text-align: center;
+    font-size: 30px;
 }
 
 p {
@@ -94,14 +96,15 @@ p {
 }
 
 .versiculo {
-    font-style: italic;
-    font-size: 1rem;
+    font-style:  normal;
+    font-size: 2em;
     opacity: 0.9;
+    text-align: center;
 }
 
 .fecha {
     color: #000000;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 3px;
     font-family: 'Times New Roman', Times, serif;
